@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/kwakminjun/SDC-datastructure/w1/test'
+relocations:     []
+...
