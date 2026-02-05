@@ -17,35 +17,10 @@ private:
     // Bubble Up
     void upHeap(int index)
     {
-        if (index <= root)
-            return;
-        int p = this->parent(index);
-        if (heap[p] > heap[index])
-        {
-            swap(heap[p], heap[index]);
-            upHeap(p);
-        }
     }
 
     void downHeap(int index)
     {
-        int left = this->leftChild(index);
-        int right = this->rightChild(index);
-
-        if (left > lastIndex)
-            return;
-
-        int small = left;
-        if (right <= lastIndex && heap[right] < heap[left])
-        {
-            small = right;
-        }
-
-        if (heap[small] < heap[index])
-        {
-            swap(heap[small], heap[index]);
-            downHeap(small);
-        }
     }
 
 public:
@@ -54,38 +29,18 @@ public:
         heap.push_back(-1);
         lastIndex = 0;
     }
-    // insert(e): 원소 삽입
+
     void insert(int value)
     {
-        heap.push_back(value);
-        lastIndex++;
-        upHeap(lastIndex);
     }
 
     int removal()
     {
-        int minValue = heap[root];
-        heap[root] = heap[lastIndex];
-        heap.pop_back();
-        lastIndex--;
-
-        if (lastIndex >= root)
-        {
-            downHeap(root);
-        }
-
-        return minValue;
     }
 
-    bool isEmpty()
-    {
-        return heap.empty();
-    }
+    bool isEmpty() {}
 
-    int size()
-    {
-        return heap.size();
-    }
+    int size() {}
 
     void print()
     {
